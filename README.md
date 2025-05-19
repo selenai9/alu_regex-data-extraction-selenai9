@@ -1,5 +1,3 @@
-Here's the **README.md** file, ready to paste directly into VS Code:
-
 ```markdown
 # Regex Data Extraction 
 

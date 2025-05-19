@@ -5,6 +5,11 @@ def is_valid_email(email):
     pattern = r'^[\w\.-]+@[\w\.-]+\.\w{2,}$'
     return re.match(pattern, email) is not None
 
+# Phone number validation
+def is_valid_phone(phone):
+    pattern = r'^(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}$'
+    return re.match(pattern, phone) is not None
+
 # Credit card validation
 def is_valid_credit_card(card):
     pattern = r'^\d{4}([-\s]?)\d{4}\1\d{4}\1\d{4}$'
@@ -28,6 +33,12 @@ test_data = {
         "bad-email@",
         "google@gmail.com"
     ],
+    "phones": [
+        "(123) 456-7890",
+        "123-456-7890",
+        "123.456.7890",
+        "4567890"
+    ],
     "credit_cards": [
         "1234-5678-9012-3456",
         "1234 5678 9012 3456",
@@ -49,6 +60,8 @@ test_data = {
 for email in test_data["emails"]:
     print(f"Email '{email}' is valid? {is_valid_email(email)}")
 
+for phone in test_data["phones"]:
+    print(f"Phone '{phone}' is valid? {is_valid_phone(phone)}")
 
 for card in test_data["credit_cards"]:
     print(f"Credit Card '{card}' is valid? {is_valid_credit_card(card)}")
